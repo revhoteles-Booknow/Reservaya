@@ -28,8 +28,7 @@ let currentLang = 'es';
 
 // Función para cambiar el idioma
 function updateLanguage() {
-  const lang = currentLang;
-  const newLang = lang === 'es' ? 'en' : 'es';
+  const newLang = currentLang === 'es' ? 'en' : 'es';
 
   // Actualizar textos
   document.getElementById("title").textContent = texts[newLang].title;
@@ -42,6 +41,9 @@ function updateLanguage() {
   document.getElementById("search-btn").textContent = texts[newLang].searchBtn;
   document.getElementById("lang-btn").textContent = texts[newLang].langBtn;
 
+  // Cambiar el atributo 'lang' del <html> para accesibilidad
+  document.documentElement.lang = newLang;
+
   currentLang = newLang;
 }
 
@@ -53,7 +55,7 @@ const today = new Date().toISOString().split('T')[0];
 document.getElementById("checkin").min = today;
 document.getElementById("checkout").min = today;
 
-// Manejo del formulario (aquí integraremos el ID de afiliado más adelante)
+// Manejo del formulario (aquí integraremos el ID de afiliado)
 document.getElementById("search-form").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -63,8 +65,8 @@ document.getElementById("search-form").addEventListener("submit", function(e) {
   const guests = document.getElementById("guests").value;
 
   // Aquí irá la lógica para redirigir a Booking con tu ID de afiliado
-  // Ejemplo de URL (reemplaza XXXXX con tu ID real):
-  // `https://www.booking.com/searchresults.es.html?ss=${destination}&checkin=${checkin}&checkout=${checkout}&group_adults=${guests}&aid=XXXXX`
+  const affiliateId = '2657420'; // ← Tu ID de afiliado
+  const bookingUrl = `https://www.booking.com/searchresults.es.html?ss=${destination}&checkin=${checkin}&checkout=${checkout}&group_adults=${guests}&aid=${affiliateId}`;
 
-  alert("Formulario enviado. Aquí iría la redirección a Booking con tu ID de afiliado.");
+  window.open(bookingUrl, '_blank');
 });
