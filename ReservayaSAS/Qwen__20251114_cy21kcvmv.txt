@@ -1,9 +1,0 @@
-Reservaya/
-│
-├── index.html (Landing Page Profesional Bilingüe)
-├── css/
-│   └── style.css (Estilos modernos, responsive)
-├── js/
-│   └── script.js (Manejo del idioma y formulario)
-├── favicon.ico (Icono de la pestaña)
-└── README.md (Opcional, para documentar el proyecto)
