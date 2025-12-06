@@ -3,109 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reservaya - Book Hotels with Booking.com</title>
+  <meta name="description" content="Reserva tu hotel en República Dominicana al mejor precio: Punta Cana, Santo Domingo, Puerto Plata, Samaná, La Romana y más. Comparación en tiempo real con Booking.com, Expedia y Agoda." />
+  <title>Reserva Hotel en República Dominicana | Reservaya</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f5f7fa;
-      color: #222;
-      margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
       line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
     }
-    header {
-      background: #003580;
-      color: white;
-      padding: 1.2rem 1rem;
+    .header {
       text-align: center;
+      margin-bottom: 30px;
     }
-    main {
-      max-width: 700px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    .header img {
+      max-width: 250px;
+      height: auto;
+    }
+    nav {
       text-align: center;
+      margin-bottom: 30px;
+      padding: 15px 0;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #006400;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    .lang-switch {
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-    }
-    .lang-switch a {
-      color: #d1e7ff;
-      text-decoration: underline;
-      margin: 0 8px;
-    }
-    .booking-box {
-      background: white;
-      border-radius: 12px;
-      padding: 1.8rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      margin-top: 1.5rem;
-    }
-    .booking-box h2 {
-      color: #003580;
-      margin-top: 0;
-    }
-    .booking-btn {
-      display: inline-block;
-      background: #003580;
-      color: white;
-      padding: 12px 32px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-top: 1rem;
-    }
-    .booking-btn:hover {
-      background: #002255;
-    }
-    footer {
+      color: #004d00;
       text-align: center;
-      padding: 1.5rem;
-      color: #666;
-      font-size: 0.9rem;
+    }
+    .btn {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      background: #006400;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+    }
+    .btn:hover {
+      background: #004d00;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .whatsapp-button img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1><img src="logo-reservaya.png" alt="Reservaya - Vacaciones y Sol" style="height: 40px; vertical-align: middle;">
-  <span style="font-size: 1.5rem; font-weight: bold; color: white; margin-left: 8px;">Reservaya</span></h1>
-    <div class="lang-switch">
-      <a href="?lang=es" style="color:#fff;">ES</a> | 
-      <a href="?lang=en" style="color:#fff;">EN</a>
-    </div>
-  </header>
 
-  <main>
-    <div class="booking-box">
-      <h2 id="headline">Encuentra y reserva hoteles con Booking.com</h2>
-      <p id="description">Millones de viajeros confían en Booking.com. ¡Obtén las mejores ofertas y cancelación gratuita!</p>
-      <a href="https://www.awin1.com/cread.php?awinmid=18119&awinaffid=2657420" target="_blank">
-  <strong>Buscar hoteles en Booking.com</strong>
-      </a>
-    </div>
-  </main>
+  <div class="header">
+    <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
+  </div>
 
-  <footer>
-    &copy; 2025 Reservaya. Todos los derechos reservados.
-  </footer>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="todo-incluido.html">Todo Incluido</a>
+    <a href="economico.html">Económicos</a>
+    <a href="familias.html">Para Familias</a>
+  </nav>
 
-  <script>
-    // Cambio simple de idioma (solo texto)
-    const urlParams = new URLSearchParams(window.location.search);
-    const lang = urlParams.get('lang') || 'es';
+  <h1>Reserva Ya tu Hotel en República Dominicana</h1>
 
-    if (lang === 'en') {
-      document.getElementById('headline').textContent = 'Find and book hotels with Booking.com';
-      document.getElementById('description').textContent = 'Millions of travelers trust Booking.com. Get the best deals and free cancellation!';
-      document.querySelector('.booking-btn').textContent = 'Search hotels on Booking.com</strong>';
-      document.querySelector('title').textContent = 'Reservaya - Book Hotels with Booking.com';
-    }
-  </script>
+  <p>¿Buscas alojamiento en las mejores zonas turísticas de República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar las ofertas más competitivas en <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio y Jarabacoa</strong> —todo en un solo lugar, sin costos adicionales.</p>
+
+  <p>Comparamos precios en tiempo real de Booking.com, Expedia, Agoda y otros líderes globales, para que reserves con confianza y al mejor precio. Ya sea que busques un resort todo incluido en Punta Cana, un boutique hotel en Las Terrenas, un apartamento en Juan Dolio o una eco-cabaña en Jarabacoa, ¡tenemos opciones para ti!</p>
+
+  <p>Nuestro enfoque es 100% local: te guiamos según tus necesidades —familias, parejas, viajeros solos, surfistas en Cabarete o amantes del buceo en Bayahibe— con información real sobre playas, seguridad, servicios y accesibilidad.</p>
+
+  <p>Al reservar a través de Reservaya, accedes a las mismas tarifas, políticas de cancelación y garantías que en las plataformas oficiales, pero con el respaldo de alguien que conoce República Dominicana.</p>
+
+  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver ofertas disponibles</a>
+
+  <!-- Botón de WhatsApp -->
+  <a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20en%20Reservaya" 
+     class="whatsapp-button" target="_blank" rel="noopener">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
 </body>
 </html>
