@@ -1,126 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- Idiomas -->
-<script>
-  function setLanguage(lang) {
-    document.documentElement.lang = lang;
-    localStorage.setItem('preferred-lang', lang);
-    location.reload(); // recarga con el nuevo idioma
-  }
-
-  // Detecta idioma guardado o del navegador
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferred-lang');
-    const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
-    const lang = savedLang || browserLang;
-    if (lang !== 'es') setLanguage(lang); // si no es español, cambia
-  });
-</script>
-
-<style>
-  .lang-switcher {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 999;
-    background: white;
-    padding: 4px 8px;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-size: 14px;
-  }
-  .lang-switcher button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #006400;
-    font-weight: bold;
-    margin: 0 4px;
-  }
-  .lang-switcher button.active {
-    color: #ff6b6b;
-    text-decoration: underline;
-  }
-</style>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Encuentra los mejores resorts todo incluido en República Dominicana: Punta Cana, Bávaro, La Romana y más. Reserva al mejor precio sin costos adicionales." />
-  <title>Resorts Todo Incluido en República Dominicana | Reservaya</title>
+  <meta name="description" content="Hoteles para familias en República Dominicana: Punta Cana, Bávaro, Juan Dolio y La Romana. Resorts con club infantil, piscinas y menús para niños." />
+  <title>Hoteles para Familias en República Dominicana | Reservaya</title>
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
     .header { text-align: center; margin-bottom: 30px; }
     .header img { max-width: 250px; height: auto; }
-    .btn {
-      display: inline-block;
-      background: #006400;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-    .whatsapp-button img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-    }
-    nav { text-align: center; margin-bottom: 30px; }
+    nav { text-align: center; margin-bottom: 30px; padding: 15px 0; background-color: #e8f5e9; border-radius: 8px; }
     nav a { margin: 0 10px; text-decoration: none; color: #006400; font-weight: bold; }
+    h1 { color: #004d00; text-align: center; }
+    .btn { display: block; width: fit-content; margin: 20px auto; background: #006400; color: white; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 18px; }
+    ul { padding-left: 20px; }
+    .whatsapp-button { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+    .whatsapp-button img { width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
   </style>
+
+  <!-- Idiomas -->
+  <script>
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('preferred-lang', lang);
+      location.reload();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred-lang');
+      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+      const lang = savedLang || browserLang;
+      if (lang !== 'es') setLanguage(lang);
+    });
+  </script>
+
+  <style>
+    .lang-switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-size: 14px;
+    }
+    .lang-switcher button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #006400;
+      font-weight: bold;
+      margin: 0 4px;
+    }
+    .lang-switcher button.active {
+      color: #ff6b6b;
+      text-decoration: underline;
+    }
+  </style>
+
 </head>
 <body>
 
-  <div class="header">
-    <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
-  </div>
-  <nav>
-<a href="index.html">Inicio</a>
+<!-- Selector de idioma -->
+<div class="lang-switcher">
+  <button onclick="setLanguage('es')" id="btn-es">ES</button>
+  <button onclick="setLanguage('en')" id="btn-en">EN</button>
+</div>
+
+<script>
+  const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
+  document.getElementById('btn-' + lang).classList.add('active');
+</script>
+
+<div class="header">
+  <img src="Logo-reservaya.png" alt="Reservaya - Hoteles para Familias en República Dominicana">
+</div>
+
+<nav>
+  <a href="index.html">Inicio</a>
   <a href="todo-incluido.html">Todo Incluido</a>
   <a href="economico.html">Económicos</a>
   <a href="familias.html">Para Familias</a>
-  <nav>
-   <h1>Hoteles Familiares en República Dominicana – ¡Diseñados para Niños!</h1>
+</nav>
 
-<p>¿Viajas con niños y necesitas un alojamiento seguro, divertido y cómodo? En <strong>Reservaya</strong> te ayudamos a encontrar los mejores <strong>hoteles y resorts para familias</strong> en <strong>Punta Cana, Bávaro, Juan Dolio y La Romana</strong>, con:</p>
+<!-- Contenido en español -->
+<div id="content-es" style="display:block;">
+  <h1>Hoteles Familiares en República Dominicana – ¡Diseñados para Niños!</h1>
+  <p>¿Viajas con niños y necesitas un alojamiento seguro, divertido y cómodo? En <strong>Reservaya</strong> te ayudamos a encontrar los mejores <strong>hoteles y resorts para familias</strong> en <strong>Punta Cana, Bávaro, Juan Dolio y La Romana</strong>, con:</p>
+  <ul>
+    <li>Club infantil y actividades supervisadas</li>
+    <li>Habitaciones familiares o suites con cocina</li>
+    <li>Piscinas con áreas para niños y toboganes</li>
+    <li>Playas calmadas y personal amable</li>
+    <li>Cunas y menús infantiles disponibles</li>
+  </ul>
+  <p>Comparamos ofertas de Booking.com y otros socios para que reserves con tranquilidad. ¡Sin sorpresas: todo lo que ves está incluido!</p>
+  <p>Porque sabemos que viajar con niños requiere más planificación… y merece las mejores vacaciones.</p>
+  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver hoteles para familias</a>
+</div>
 
-<ul>
-  <li>Club infantil y actividades supervisadas</li>
-  <li>Habitaciones familiares o suites con cocina</li>
-  <li>Piscinas con áreas para niños y toboganes</li>
-  <li>Playas calmadas y personal amable</li>
-  <li>Cunas y menús infantiles disponibles</li>
-</ul>
+<!-- Contenido en inglés -->
+<div id="content-en" style="display:none;">
+  <h1>Family-Friendly Hotels in the Dominican Republic – Designed for Kids!</h1>
+  <p>Traveling with kids and need safe, fun, and comfortable accommodation? <strong>Reservaya</strong> helps you find the best <strong>family hotels and resorts</strong> in <strong>Punta Cana, Bávaro, Juan Dolio, and La Romana</strong>, featuring:</p>
+  <ul>
+    <li>Kids’ clubs and supervised activities</li>
+    <li>Family rooms or suites with kitchenettes</li>
+    <li>Pools with children’s areas and slides</li>
+    <li>Calm beaches and friendly staff</li>
+    <li>Cribs and kids’ menus available</li>
+  </ul>
+  <p>We compare deals from Booking.com and partners so you book with peace of mind. No surprises — everything you see is included!</p>
+  <p>Because we know traveling with kids takes extra planning… and deserves the best vacation.</p>
+  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View family-friendly hotels</a>
+</div>
 
-<p>Comparamos ofertas de Booking.com y otros socios para que reserves con tranquilidad. ¡Sin sorpresas: todo lo que ves está incluido!</p>
+<script>
+  function toggleLanguage() {
+    const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
+    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+  }
+  toggleLanguage();
+</script>
 
-<p>Porque sabemos que viajar con niños requiere más planificación… y merece las mejores vacaciones.</p>
-
-<a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver hoteles para familias</a>
-  </nav>
-
-  <h1>Reserva Ya tu Todo Incluido en República Dominicana</h1>
-
-  <p>¿Sueñas con unas vacaciones sin preocupaciones en República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar los mejores <strong>resorts todo incluido</strong> en <strong>Punta Cana, Bávaro, Cap Cana, La Romana y Puerto Plata</strong> —con comidas, bebidas, actividades y hasta propinas incluidas.</p>
-
-  <p>Comparamos ofertas de Booking.com, Expedia y otros líderes para que no pagues de más. Encuentra desde resorts familiares con clubes infantiles hasta opciones solo para adultos en playas exclusivas.</p>
-
-  <p>¡Sin costos adicionales! Al reservar a través de Reservaya, accedes a las mismas tarifas y garantías que en las plataformas oficiales, pero con asesoría local para elegir el resort perfecto según tus gustos.</p>
-
-  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver resorts todo incluido</a>
-
-  <!-- Botón de WhatsApp -->
-  <a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20un%20todo%20incluido%20en%20RD" 
-     class="whatsapp-button" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
+<!-- Botón de WhatsApp -->
+<a href="https://wa.me/18095551234?text=Hola,%20necesito%20un%20hotel%20para%20familia%20con%20niños%20en%20RD" 
+   class="whatsapp-button" target="_blank" rel="noopener">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
