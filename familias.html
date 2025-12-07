@@ -9,31 +9,13 @@
     body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
     .header { text-align: center; margin-bottom: 30px; }
     .header img { max-width: 250px; height: auto; }
-    nav { text-align: center; margin-bottom: 30px; padding: 15px 0; background-color: #e8f5e9; border-radius: 8px; }
+    nav { text-align: center; margin-bottom: 30, padding: 15px 0; background-color: #e8f5e9; border-radius: 8px; }
     nav a { margin: 0 10px; text-decoration: none; color: #006400; font-weight: bold; }
     h1 { color: #004d00; text-align: center; }
     .btn { display: block; width: fit-content; margin: 20px auto; background: #006400; color: white; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 18px; }
     ul { padding-left: 20px; }
     .whatsapp-button { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
     .whatsapp-button img { width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-  </style>
-
-  <!-- Idiomas -->
-  <script>
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem('preferred-lang', lang);
-      location.reload();
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('preferred-lang');
-      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
-      const lang = savedLang || browserLang;
-      if (lang !== 'es') setLanguage(lang);
-    });
-  </script>
-
-  <style>
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -58,20 +40,13 @@
       text-decoration: underline;
     }
   </style>
-
 </head>
 <body>
 
-<!-- Selector de idioma -->
 <div class="lang-switcher">
   <button onclick="setLanguage('es')" id="btn-es">ES</button>
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
 </div>
-
-<script>
-  const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-  document.getElementById('btn-' + lang).classList.add('active');
-</script>
 
 <div class="header">
   <img src="Logo-reservaya.png" alt="Reservaya - Hoteles para Familias en República Dominicana">
@@ -84,8 +59,7 @@
   <a href="familias.html">Para Familias</a>
 </nav>
 
-<!-- Contenido en español -->
-<div id="content-es" style="display:block;">
+<div id="content-es" style="display:none;">
   <h1>Hoteles Familiares en República Dominicana – ¡Diseñados para Niños!</h1>
   <p>¿Viajas con niños y necesitas un alojamiento seguro, divertido y cómodo? En <strong>Reservaya</strong> te ayudamos a encontrar los mejores <strong>hoteles y resorts para familias</strong> en <strong>Punta Cana, Bávaro, Juan Dolio y La Romana</strong>, con:</p>
   <ul>
@@ -100,7 +74,6 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver hoteles para familias</a>
 </div>
 
-<!-- Contenido en inglés -->
 <div id="content-en" style="display:none;">
   <h1>Family-Friendly Hotels in the Dominican Republic – Designed for Kids!</h1>
   <p>Traveling with kids and need safe, fun, and comfortable accommodation? <strong>Reservaya</strong> helps you find the best <strong>family hotels and resorts</strong> in <strong>Punta Cana, Bávaro, Juan Dolio, and La Romana</strong>, featuring:</p>
@@ -116,20 +89,38 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View family-friendly hotels</a>
 </div>
 
-<script>
-  function toggleLanguage() {
-    const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
-    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-  }
-  toggleLanguage();
-</script>
-
-<!-- Botón de WhatsApp -->
 <a href="https://wa.me/18095551234?text=Hola,%20necesito%20un%20hotel%20para%20familia%20con%20niños%20en%20RD" 
    class="whatsapp-button" target="_blank" rel="noopener">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
+<script>
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferred-lang', lang);
+
+    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    if (lang === 'es') {
+      document.title = "Hoteles para Familias en República Dominicana | Reservaya";
+    } else {
+      document.title = "Family-Friendly Hotels in the Dominican Republic | Reservaya";
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred-lang');
+    const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+    const lang = savedLang || browserLang;
+
+    document.getElementById('content-' + lang).style.display = 'block';
+    document.getElementById('btn-' + lang).classList.add('active');
+  });
+</script>
 
 </body>
 </html>
