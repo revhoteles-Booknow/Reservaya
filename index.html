@@ -75,25 +75,6 @@
       border-radius: 50%;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-  </style>
-
-  <!-- Idiomas -->
-  <script>
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem('preferred-lang', lang);
-      location.reload();
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('preferred-lang');
-      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
-      const lang = savedLang || browserLang;
-      if (lang !== 'es') setLanguage(lang);
-    });
-  </script>
-
-  <style>
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -118,7 +99,6 @@
       text-decoration: underline;
     }
   </style>
-
 </head>
 <body>
 
@@ -127,11 +107,6 @@
   <button onclick="setLanguage('es')" id="btn-es">ES</button>
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
 </div>
-
-<script>
-  const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-  document.getElementById('btn-' + lang).classList.add('active');
-</script>
 
 <div class="header">
   <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
@@ -145,7 +120,7 @@
 </nav>
 
 <!-- Contenido en español -->
-<div id="content-es" style="display:block;">
+<div id="content-es" style="display:none;">
   <h1>Reserva Ya tu Hotel en República Dominicana</h1>
   <p>¿Buscas alojamiento en las mejores zonas turísticas de República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar las ofertas más competitivas en <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio y Jarabacoa</strong> —todo en un solo lugar, sin costos adicionales.</p>
   <p>Comparamos precios en tiempo real de Booking.com, Expedia, Agoda y otros líderes globales, para que reserves con confianza y al mejor precio. Ya sea que busques un resort todo incluido en Punta Cana, un boutique hotel en Las Terrenas, un apartamento en Juan Dolio o una eco-cabaña en Jarabacoa, ¡tenemos opciones para ti!</p>
@@ -164,20 +139,40 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View available offers</a>
 </div>
 
-<script>
-  function toggleLanguage() {
-    const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
-    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-  }
-  toggleLanguage();
-</script>
-
 <!-- Botón de WhatsApp -->
 <a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20en%20Reservaya" 
    class="whatsapp-button" target="_blank" rel="noopener">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
+<!-- Script de idioma SIN recarga -->
+<script>
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferred-lang', lang);
+
+    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    if (lang === 'es') {
+      document.title = "Reserva Hotel en República Dominicana | Reservaya";
+    } else {
+      document.title = "Book Your Hotel in the Dominican Republic | Reservaya";
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred-lang');
+    const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+    const lang = savedLang || browserLang;
+
+    document.getElementById('content-' + lang).style.display = 'block';
+    document.getElementById('btn-' + lang).classList.add('active');
+  });
+</script>
 
 </body>
 </html>
