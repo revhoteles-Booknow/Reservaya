@@ -1,109 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- Idiomas -->
-<script>
-  function setLanguage(lang) {
-    document.documentElement.lang = lang;
-    localStorage.setItem('preferred-lang', lang);
-    location.reload(); // recarga con el nuevo idioma
-  }
-
-  // Detecta idioma guardado o del navegador
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferred-lang');
-    const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
-    const lang = savedLang || browserLang;
-    if (lang !== 'es') setLanguage(lang); // si no es español, cambia
-  });
-</script>
-
-<style>
-  .lang-switcher {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 999;
-    background: white;
-    padding: 4px 8px;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-size: 14px;
-  }
-  .lang-switcher button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #006400;
-    font-weight: bold;
-    margin: 0 4px;
-  }
-  .lang-switcher button.active {
-    color: #ff6b6b;
-    text-decoration: underline;
-  }
-</style>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Encuentra los mejores resorts todo incluido en República Dominicana: Punta Cana, Bávaro, La Romana y más. Reserva al mejor precio sin costos adicionales." />
   <title>Resorts Todo Incluido en República Dominicana | Reservaya</title>
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
     .header { text-align: center; margin-bottom: 30px; }
     .header img { max-width: 250px; height: auto; }
-    .btn {
-      display: inline-block;
-      background: #006400;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-    .whatsapp-button img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-    }
-    nav { text-align: center; margin-bottom: 30px; }
+    nav { text-align: center; margin-bottom: 30px; padding: 15px 0; background-color: #e8f5e9; border-radius: 8px; }
     nav a { margin: 0 10px; text-decoration: none; color: #006400; font-weight: bold; }
+    h1 { color: #004d00; text-align: center; }
+    .btn { display: block; width: fit-content; margin: 20px auto; background: #006400; color: white; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 18px; }
+    .whatsapp-button { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+    .whatsapp-button img { width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
   </style>
+
+  <!-- Idiomas -->
+  <script>
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('preferred-lang', lang);
+      location.reload();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred-lang');
+      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+      const lang = savedLang || browserLang;
+      if (lang !== 'es') setLanguage(lang);
+    });
+  </script>
+
+  <style>
+    .lang-switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-size: 14px;
+    }
+    .lang-switcher button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #006400;
+      font-weight: bold;
+      margin: 0 4px;
+    }
+    .lang-switcher button.active {
+      color: #ff6b6b;
+      text-decoration: underline;
+    }
+  </style>
+
 </head>
 <body>
 
-  <div class="header">
-    <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
-  </div>
+<!-- Selector de idioma -->
+<div class="lang-switcher">
+  <button onclick="setLanguage('es')" id="btn-es">ES</button>
+  <button onclick="setLanguage('en')" id="btn-en">EN</button>
+</div>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="todo-incluido.html">Todo Incluido</a>
-    <a href="economico.html">Económicos</a>
-    <a href="familias.html">Para Familias</a>
-  </nav>
+<script>
+  const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
+  document.getElementById('btn-' + lang).classList.add('active');
+</script>
 
+<div class="header">
+  <img src="Logo-reservaya.png" alt="Reservaya - Todo Incluido en República Dominicana">
+</div>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="todo-incluido.html">Todo Incluido</a>
+  <a href="economico.html">Económicos</a>
+  <a href="familias.html">Para Familias</a>
+</nav>
+
+<!-- Contenido en español -->
+<div id="content-es" style="display:block;">
   <h1>Reserva Ya tu Todo Incluido en República Dominicana</h1>
-
   <p>¿Sueñas con unas vacaciones sin preocupaciones en República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar los mejores <strong>resorts todo incluido</strong> en <strong>Punta Cana, Bávaro, Cap Cana, La Romana y Puerto Plata</strong> —con comidas, bebidas, actividades y hasta propinas incluidas.</p>
-
   <p>Comparamos ofertas de Booking.com, Expedia y otros líderes para que no pagues de más. Encuentra desde resorts familiares con clubes infantiles hasta opciones solo para adultos en playas exclusivas.</p>
-
   <p>¡Sin costos adicionales! Al reservar a través de Reservaya, accedes a las mismas tarifas y garantías que en las plataformas oficiales, pero con asesoría local para elegir el resort perfecto según tus gustos.</p>
+  <a href="https://www.booking.com?aid=tu_id_de_afiliado" class="btn" target="_blank" rel="noopener">Ver resorts todo incluido</a>
+</div>
 
-  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver resorts todo incluido</a>
+<!-- Contenido en inglés -->
+<div id="content-en" style="display:none;">
+  <h1>Book Your All-Inclusive Resort in the Dominican Republic Now</h1>
+  <p>Dreaming of a worry-free vacation in the Dominican Republic? <strong>Reservaya</strong> helps you find the best <strong>all-inclusive resorts</strong> in <strong>Punta Cana, Bávaro, Cap Cana, La Romana, and Puerto Plata</strong> —with meals, drinks, activities, and even tips included.</p>
+  <p>We compare deals from Booking.com, Expedia, and other leaders so you never overpay. Find everything from family-friendly resorts with kids’ clubs to adults-only escapes on exclusive beaches.</p>
+  <p>No extra fees! When you book through Reservaya, you get the same rates and guarantees as on official platforms—but with local advice to choose the perfect resort for your taste.</p>
+  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View all-inclusive resorts</a>
+</div>
 
-  <!-- Botón de WhatsApp -->
-  <a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20un%20todo%20incluido%20en%20RD" 
-     class="whatsapp-button" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
+<script>
+  function toggleLanguage() {
+    const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
+    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+  }
+  toggleLanguage();
+</script>
+
+<!-- Botón de WhatsApp -->
+<a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20un%20todo%20incluido%20en%20RD" 
+   class="whatsapp-button" target="_blank" rel="noopener">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
