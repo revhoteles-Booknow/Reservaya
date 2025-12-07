@@ -16,24 +16,6 @@
     ul { padding-left: 20px; }
     .whatsapp-button { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
     .whatsapp-button img { width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-  </style>
-
-  <!-- Idiomas -->
-  <script>
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem('preferred-lang', lang);
-      location.reload();
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('preferred-lang');
-      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
-      const lang = savedLang || browserLang;
-      if (lang !== 'es') setLanguage(lang);
-    });
-  </script>
-
-  <style>
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -58,20 +40,13 @@
       text-decoration: underline;
     }
   </style>
-
 </head>
 <body>
 
-<!-- Selector de idioma -->
 <div class="lang-switcher">
   <button onclick="setLanguage('es')" id="btn-es">ES</button>
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
 </div>
-
-<script>
-  const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-  document.getElementById('btn-' + lang).classList.add('active');
-</script>
 
 <div class="header">
   <img src="Logo-reservaya.png" alt="Reservaya - Alojamiento Económico en República Dominicana">
@@ -84,8 +59,7 @@
   <a href="familias.html">Para Familias</a>
 </nav>
 
-<!-- Contenido en español -->
-<div id="content-es" style="display:block;">
+<div id="content-es" style="display:none;">
   <h1>Alojamiento Económico en República Dominicana – ¡Desde USD $20!</h1>
   <p>¿Quieres conocer República Dominicana sin gastar de más? En <strong>Reservaya</strong> te mostramos las mejores opciones de <strong>alojamiento económico</strong> en <strong>Santo Domingo, Las Terrenas, Sosúa, Cabarete, Samaná y Juan Dolio</strong>: hostales, guesthouses, apartamentos y hoteles limpios y seguros desde solo <strong>20 dólares por noche</strong>.</p>
   <p>Filtramos ofertas reales de Booking.com, Agoda y más, y eliminamos los lugares sin reseñas o con políticas ocultas. ¡Viaja inteligente y ahorra para más experiencias!</p>
@@ -93,7 +67,6 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver alojamientos económicos</a>
 </div>
 
-<!-- Contenido en inglés -->
 <div id="content-en" style="display:none;">
   <h1>Budget Accommodation in the Dominican Republic – From USD $20!</h1>
   <p>Want to explore the Dominican Republic without overspending? <strong>Reservaya</strong> shows you the best <strong>budget-friendly stays</strong> in <strong>Santo Domingo, Las Terrenas, Sosúa, Cabarete, Samaná, and Juan Dolio</strong>: hostels, guesthouses, apartments, and clean, safe hotels from just <strong>$20 per night</strong>.</p>
@@ -102,20 +75,38 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View budget accommodations</a>
 </div>
 
-<script>
-  function toggleLanguage() {
-    const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
-    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-  }
-  toggleLanguage();
-</script>
-
-<!-- Botón de WhatsApp -->
 <a href="https://wa.me/18095551234?text=Hola,%20busco%20alojamiento%20económico%20en%20República%20Dominicana" 
    class="whatsapp-button" target="_blank" rel="noopener">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
+<script>
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferred-lang', lang);
+
+    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    if (lang === 'es') {
+      document.title = "Alojamiento Económico en República Dominicana | Reservaya";
+    } else {
+      document.title = "Budget Accommodation in the Dominican Republic | Reservaya";
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred-lang');
+    const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+    const lang = savedLang || browserLang;
+
+    document.getElementById('content-' + lang).style.display = 'block';
+    document.getElementById('btn-' + lang).classList.add('active');
+  });
+</script>
 
 </body>
 </html>
