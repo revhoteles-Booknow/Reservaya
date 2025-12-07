@@ -1,5 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+  <!-- Idiomas -->
+<script>
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferred-lang', lang);
+    location.reload(); // recarga con el nuevo idioma
+  }
+
+  // Detecta idioma guardado o del navegador
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred-lang');
+    const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+    const lang = savedLang || browserLang;
+    if (lang !== 'es') setLanguage(lang); // si no es español, cambia
+  });
+</script>
+
+<style>
+  .lang-switcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    background: white;
+    padding: 4px 8px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 14px;
+  }
+  .lang-switcher button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #006400;
+    font-weight: bold;
+    margin: 0 4px;
+  }
+  .lang-switcher button.active {
+    color: #ff6b6b;
+    text-decoration: underline;
+  }
+</style>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
