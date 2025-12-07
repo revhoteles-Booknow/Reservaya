@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Reserva tu hotel en República Dominicana al mejor precio: Punta Cana, Santo Domingo, Puerto Plata, Samaná, La Romana y más. Comparación en tiempo real con Booking.com, Expedia y Agoda." />
+  <meta name="description" content="Reserva tu hotel en República Dominicana al mejor precio: Punta Cana, Santo Domingo, Puerto Plata, Samaná y más. Comparación en tiempo real con Booking.com, Expedia y Agoda." />
   <title>Reserva Hotel en República Dominicana | Reservaya</title>
   <style>
     body {
@@ -76,37 +76,108 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
   </style>
+
+  <!-- Idiomas -->
+  <script>
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('preferred-lang', lang);
+      location.reload();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferred-lang');
+      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+      const lang = savedLang || browserLang;
+      if (lang !== 'es') setLanguage(lang);
+    });
+  </script>
+
+  <style>
+    .lang-switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-size: 14px;
+    }
+    .lang-switcher button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #006400;
+      font-weight: bold;
+      margin: 0 4px;
+    }
+    .lang-switcher button.active {
+      color: #ff6b6b;
+      text-decoration: underline;
+    }
+  </style>
+
 </head>
 <body>
 
-  <div class="header">
-    <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
-  </div>
+<!-- Selector de idioma -->
+<div class="lang-switcher">
+  <button onclick="setLanguage('es')" id="btn-es">ES</button>
+  <button onclick="setLanguage('en')" id="btn-en">EN</button>
+</div>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="todo-incluido.html">Todo Incluido</a>
-    <a href="economico.html">Económicos</a>
-    <a href="familias.html">Para Familias</a>
-  </nav>
+<script>
+  const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
+  document.getElementById('btn-' + lang).classList.add('active');
+</script>
 
+<div class="header">
+  <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
+</div>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="todo-incluido.html">Todo Incluido</a>
+  <a href="economico.html">Económicos</a>
+  <a href="familias.html">Para Familias</a>
+</nav>
+
+<!-- Contenido en español -->
+<div id="content-es" style="display:block;">
   <h1>Reserva Ya tu Hotel en República Dominicana</h1>
-
   <p>¿Buscas alojamiento en las mejores zonas turísticas de República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar las ofertas más competitivas en <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio y Jarabacoa</strong> —todo en un solo lugar, sin costos adicionales.</p>
-
   <p>Comparamos precios en tiempo real de Booking.com, Expedia, Agoda y otros líderes globales, para que reserves con confianza y al mejor precio. Ya sea que busques un resort todo incluido en Punta Cana, un boutique hotel en Las Terrenas, un apartamento en Juan Dolio o una eco-cabaña en Jarabacoa, ¡tenemos opciones para ti!</p>
-
   <p>Nuestro enfoque es 100% local: te guiamos según tus necesidades —familias, parejas, viajeros solos, surfistas en Cabarete o amantes del buceo en Bayahibe— con información real sobre playas, seguridad, servicios y accesibilidad.</p>
-
   <p>Al reservar a través de Reservaya, accedes a las mismas tarifas, políticas de cancelación y garantías que en las plataformas oficiales, pero con el respaldo de alguien que conoce República Dominicana.</p>
+  <a href="https://www.booking.com?aid=tu_id_de_afiliado" class="btn" target="_blank" rel="noopener">Ver ofertas disponibles</a>
+</div>
 
-  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver ofertas disponibles</a>
+<!-- Contenido en inglés -->
+<div id="content-en" style="display:none;">
+  <h1>Book Your Hotel in the Dominican Republic Now</h1>
+  <p>Looking for accommodation in the Dominican Republic’s top destinations? <strong>Reservaya</strong> helps you find the best deals in <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio, and Jarabacoa</strong> —all in one place, with no extra fees.</p>
+  <p>We compare real-time prices from Booking.com, Expedia, Agoda, and other global leaders so you can book with confidence at the best price. Whether you're looking for an all-inclusive resort in Punta Cana, a boutique hotel in Las Terrenas, an apartment in Juan Dolio, or an eco-cabin in Jarabacoa—we have options for you!</p>
+  <p>Our focus is 100% local: we guide you based on your needs—families, couples, solo travelers, surfers in Cabarete, or divers in Bayahibe—with real insights on beaches, safety, services, and accessibility.</p>
+  <p>When you book through Reservaya, you get the same rates, cancellation policies, and guarantees as on official platforms—but with local support from someone who knows the Dominican Republic.</p>
+  <a href="https://www.booking.com?aid=tu_id_de_afiliado" class="btn" target="_blank" rel="noopener">View available offers</a>
+</div>
 
-  <!-- Botón de WhatsApp -->
-  <a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20en%20Reservaya" 
-     class="whatsapp-button" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
+<script>
+  function toggleLanguage() {
+    const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
+    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+  }
+  toggleLanguage();
+</script>
+
+<!-- Botón de WhatsApp -->
+<a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20en%20Reservaya" 
+   class="whatsapp-button" target="_blank" rel="noopener">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
