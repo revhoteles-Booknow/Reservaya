@@ -15,24 +15,6 @@
     .btn { display: block; width: fit-content; margin: 20px auto; background: #006400; color: white; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 18px; }
     .whatsapp-button { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
     .whatsapp-button img { width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-  </style>
-
-  <!-- Idiomas -->
-  <script>
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem('preferred-lang', lang);
-      location.reload();
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('preferred-lang');
-      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
-      const lang = savedLang || browserLang;
-      if (lang !== 'es') setLanguage(lang);
-    });
-  </script>
-
-  <style>
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -57,20 +39,13 @@
       text-decoration: underline;
     }
   </style>
-
 </head>
 <body>
 
-<!-- Selector de idioma -->
 <div class="lang-switcher">
   <button onclick="setLanguage('es')" id="btn-es">ES</button>
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
 </div>
-
-<script>
-  const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-  document.getElementById('btn-' + lang).classList.add('active');
-</script>
 
 <div class="header">
   <img src="Logo-reservaya.png" alt="Reservaya - Todo Incluido en República Dominicana">
@@ -83,8 +58,7 @@
   <a href="familias.html">Para Familias</a>
 </nav>
 
-<!-- Contenido en español -->
-<div id="content-es" style="display:block;">
+<div id="content-es" style="display:none;">
   <h1>Reserva Ya tu Todo Incluido en República Dominicana</h1>
   <p>¿Sueñas con unas vacaciones sin preocupaciones en República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar los mejores <strong>resorts todo incluido</strong> en <strong>Punta Cana, Bávaro, Cap Cana, La Romana y Puerto Plata</strong> —con comidas, bebidas, actividades y hasta propinas incluidas.</p>
   <p>Comparamos ofertas de Booking.com, Expedia y otros líderes para que no pagues de más. Encuentra desde resorts familiares con clubes infantiles hasta opciones solo para adultos en playas exclusivas.</p>
@@ -92,7 +66,6 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver resorts todo incluido</a>
 </div>
 
-<!-- Contenido en inglés -->
 <div id="content-en" style="display:none;">
   <h1>Book Your All-Inclusive Resort in the Dominican Republic Now</h1>
   <p>Dreaming of a worry-free vacation in the Dominican Republic? <strong>Reservaya</strong> helps you find the best <strong>all-inclusive resorts</strong> in <strong>Punta Cana, Bávaro, Cap Cana, La Romana, and Puerto Plata</strong> —with meals, drinks, activities, and even tips included.</p>
@@ -101,20 +74,38 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View all-inclusive resorts</a>
 </div>
 
-<script>
-  function toggleLanguage() {
-    const lang = localStorage.getItem('preferred-lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
-    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-  }
-  toggleLanguage();
-</script>
-
-<!-- Botón de WhatsApp -->
 <a href="https://wa.me/18095551234?text=Hola,%20quiero%20reservar%20un%20todo%20incluido%20en%20RD" 
    class="whatsapp-button" target="_blank" rel="noopener">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
+<script>
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferred-lang', lang);
+
+    document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
+    document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    if (lang === 'es') {
+      document.title = "Resorts Todo Incluido en República Dominicana | Reservaya";
+    } else {
+      document.title = "All-Inclusive Resorts in the Dominican Republic | Reservaya";
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferred-lang');
+    const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+    const lang = savedLang || browserLang;
+
+    document.getElementById('content-' + lang).style.display = 'block';
+    document.getElementById('btn-' + lang).classList.add('active');
+  });
+</script>
 
 </body>
 </html>
