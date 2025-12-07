@@ -164,9 +164,40 @@
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View family-friendly hotels</a>
 </div>
 
-<a href="https://wa.me/18298604334?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
-   class="whatsapp-urgente" target="_blank" rel="noopener" aria-label="WhatsApp urgente">
+<!-- Botón pequeño de WhatsApp (urgencias) - FIJO -->
+<a href="https://wa.me/18095551234?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
+   class="whatsapp-urgente" 
+   target="_blank" 
+   rel="noopener"
+   aria-label="WhatsApp urgente">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<style>
+.whatsapp-urgente {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #25D366; /* Verde de WhatsApp */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+.whatsapp-urgente:hover {
+  transform: scale(1.1);
+}
+.whatsapp-urgente img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1); /* Hace el ícono blanco */
+}
+</style>
 </a>
 
 <script>
