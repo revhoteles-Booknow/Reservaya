@@ -112,6 +112,18 @@
       background: #004d00;
     }
 
+    /* Mensaje de éxito */
+    #success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+    }
+
     /* Botón de WhatsApp fijo */
     .whatsapp-urgente {
       position: fixed;
@@ -194,12 +206,15 @@
   <!-- Formulario de consultas -->
   <div class="contact-box">
     <h2>¿Tienes dudas? ¡Escríbenos!</h2>
-    <form action="https://formspree.io/f/TU_ENDPOINT_FORMSPREE" method="POST">
+    <form id="consultas-form">
       <input type="text" name="nombre" placeholder="Tu nombre" required>
       <input type="email" name="email" placeholder="Tu email" required>
       <textarea name="mensaje" placeholder="¿En qué zona deseas alojarte? ¿Con quién viajas? ¿Tienes fechas?" rows="4" required></textarea>
       <button type="submit">Enviar consulta</button>
     </form>
+    <div id="success-message">
+      ¡Gracias por tu consulta! Nos comunicaremos contigo muy pronto.
+    </div>
   </div>
 </div>
 
@@ -214,12 +229,15 @@
 
   <div class="contact-box">
     <h2>Do you have questions? Write us!</h2>
-    <form action="https://formspree.io/f/TU_ENDPOINT_FORMSPREE" method="POST">
+    <form id="consultas-form-en">
       <input type="text" name="nombre" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Your email" required>
       <textarea name="mensaje" placeholder="Where would you like to stay? Who are you traveling with? Do you have dates?" rows="4" required></textarea>
       <button type="submit">Send inquiry</button>
     </form>
+    <div id="success-message-en" style="display:none; background:#d4edda; color:#155724; padding:15px; border-radius:8px; margin:20px 0; text-align:center; font-family:'Lato',sans-serif;">
+      Thank you for your inquiry! We’ll contact you soon.
+    </div>
   </div>
 </div>
 
@@ -229,32 +247,53 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
-<!-- Script de idioma SIN recarga -->
+<!-- Script de idioma y formulario -->
 <script>
+  // Idioma
   function setLanguage(lang) {
     document.documentElement.lang = lang;
     localStorage.setItem('preferred-lang', lang);
-
     document.getElementById('content-es').style.display = lang === 'es' ? 'block' : 'none';
     document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
-
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-    if (lang === 'es') {
-      document.title = "Reserva Hotel en República Dominicana | Reservaya";
-    } else {
-      document.title = "Book Your Hotel in the Dominican Republic | Reservaya";
-    }
+    if (lang === 'es') document.title = "Reserva Hotel en República Dominicana | Reservaya";
+    else document.title = "Book Your Hotel in the Dominican Republic | Reservaya";
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferred-lang');
     const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
     const lang = savedLang || browserLang;
-
     document.getElementById('content-' + lang).style.display = 'block';
     document.getElementById('btn-' + lang).classList.add('active');
+  });
+
+  // Formularios
+  document.getElementById('consultas-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch('https://formspree.io/f/mwpgnprg', {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    }).then(() => {
+      document.getElementById('success-message').style.display = 'block';
+      this.reset();
+      setTimeout(() => document.getElementById('success-message').style.display = 'none', 5000);
+    }).catch(() => alert('Error al enviar. Intenta de nuevo.'));
+  });
+
+  document.getElementById('consultas-form-en').addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch('https://formspree.io/f/mwpgnprg', {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    }).then(() => {
+      document.getElementById('success-message-en').style.display = 'block';
+      this.reset();
+      setTimeout(() => document.getElementById('success-message-en').style.display = 'none', 5000);
+    }).catch(() => alert('Error sending. Please try again.'));
   });
 </script>
 
