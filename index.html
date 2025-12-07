@@ -42,10 +42,12 @@
       color: #ff6b6b;
       text-decoration: underline;
     }
-    h1 {
+    h1, h2, h3 {
       font-family: 'Lato', sans-serif;
       font-weight: 700;
       color: #004d00;
+    }
+    h1 {
       text-align: center;
     }
     p {
@@ -73,18 +75,63 @@
     ul {
       padding-left: 20px;
     }
-    .whatsapp-button {
+
+    /* Formulario de contacto */
+    .contact-box {
+      background: #f0f8f0;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 40px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .contact-box h2 {
+      margin-top: 0;
+      color: #004d00;
+      font-size: 20px;
+    }
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Lato', sans-serif;
+    }
+    .contact-box button {
+      background: #006400;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+    }
+    .contact-box button:hover {
+      background: #004d00;
+    }
+
+    /* Botón pequeño de WhatsApp (urgencias) */
+    .whatsapp-urgente {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 1000;
-    }
-    .whatsapp-button img {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    .whatsapp-urgente img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Selector de idioma */
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -137,6 +184,17 @@
   <p>Nuestro enfoque es 100% local: te guiamos según tus necesidades —familias, parejas, viajeros solos, surfistas en Cabarete o amantes del buceo en Bayahibe— con información real sobre playas, seguridad, servicios y accesibilidad.</p>
   <p>Al reservar a través de Reservaya, accedes a las mismas tarifas, políticas de cancelación y garantías que en las plataformas oficiales, pero con el respaldo de alguien que conoce República Dominicana.</p>
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver ofertas disponibles</a>
+
+  <!-- Formulario de consultas -->
+  <div class="contact-box">
+    <h2>¿Tienes dudas? ¡Escríbenos!</h2>
+    <form action="https://formspree.io/f/TU_ENDPOINT_FORMSPREE" method="POST">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu email" required>
+      <textarea name="mensaje" placeholder="¿En qué zona deseas alojarte? ¿Con quién viajas? ¿Tienes fechas?" rows="4" required></textarea>
+      <button type="submit">Enviar consulta</button>
+    </form>
+  </div>
 </div>
 
 <!-- Contenido en inglés -->
@@ -147,11 +205,21 @@
   <p>Our focus is 100% local: we guide you based on your needs—families, couples, solo travelers, surfers in Cabarete, or divers in Bayahibe—with real insights on beaches, safety, services, and accessibility.</p>
   <p>When you book through Reservaya, you get the same rates, cancellation policies, and guarantees as on official platforms—but with local support from someone who knows the Dominican Republic.</p>
   <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View available offers</a>
+
+  <div class="contact-box">
+    <h2>Do you have questions? Write us!</h2>
+    <form action="https://formspree.io/f/TU_ENDPOINT_FORMSPREE" method="POST">
+      <input type="text" name="nombre" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="mensaje" placeholder="Where would you like to stay? Who are you traveling with? Do you have dates?" rows="4" required></textarea>
+      <button type="submit">Send inquiry</button>
+    </form>
+  </div>
 </div>
 
-<!-- Botón de WhatsApp -->
-<a href="https://wa.me/tu_num?text=Hola,%20quiero%20reservar%20en%20Reservaya" 
-   class="whatsapp-button" target="_blank" rel="noopener">
+<!-- Botón pequeño de WhatsApp (urgencias) -->
+<a href="https://wa.me/18298604334?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
+   class="whatsapp-urgente" target="_blank" rel="noopener" aria-label="WhatsApp urgente">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
