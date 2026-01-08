@@ -26,7 +26,7 @@
     }
     nav {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       padding: 15px 0;
       background-color: #e8f5e9;
       border-radius: 8px;
@@ -34,7 +34,7 @@
     nav a {
       margin: 0 10px;
       text-decoration: none;
-      color: #006400;
+      color: #003366; /* AZUL OSCURO */
       font-weight: 600;
       font-size: 16px;
     }
@@ -56,18 +56,16 @@
       color: #333;
     }
     .btn {
-      display: block;
-      width: fit-content;
-      margin: 20px auto;
+      display: inline-block;
       background: #006400;
       color: white;
-      padding: 14px 28px;
+      padding: 12px 24px;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 5px;
       font-weight: bold;
-      font-size: 18px;
-      text-align: center;
+      font-size: 16px;
       font-family: 'Lato', sans-serif;
+      transition: background 0.2s ease;
     }
     .btn:hover {
       background: #004d00;
@@ -113,7 +111,7 @@
     }
 
     /* Mensaje de éxito */
-    #success-message {
+    #success-message, #success-message-en {
       display: none;
       background: #d4edda;
       color: #155724;
@@ -194,6 +192,13 @@
   <a href="familias.html">Para Familias</a>
 </nav>
 
+<!-- Botón "Ver ofertas disponibles" -->
+<div style="text-align: center; margin: 20px 0;">
+  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">
+    Ver ofertas disponibles
+  </a>
+</div>
+
 <!-- Contenido en español -->
 <div id="content-es" style="display:none;">
   <h1>Reserva Ya tu Hotel en República Dominicana</h1>
@@ -201,7 +206,6 @@
   <p>Comparamos precios en tiempo real de Booking.com, Expedia, Agoda y otros líderes globales, para que reserves con confianza y al mejor precio. Ya sea que busques un resort todo incluido en Punta Cana, un boutique hotel en Las Terrenas, un apartamento en Juan Dolio o una eco-cabaña en Jarabacoa, ¡tenemos opciones para ti!</p>
   <p>Nuestro enfoque es 100% local: te guiamos según tus necesidades —familias, parejas, viajeros solos, surfistas en Cabarete o amantes del buceo en Bayahibe— con información real sobre playas, seguridad, servicios y accesibilidad.</p>
   <p>Al reservar a través de Reservaya, accedes a las mismas tarifas, políticas de cancelación y garantías que en las plataformas oficiales, pero con el respaldo de alguien que conoce República Dominicana.</p>
-  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">Ver ofertas disponibles</a>
 
   <!-- Formulario de consultas -->
   <div class="contact-box">
@@ -225,7 +229,6 @@
   <p>We compare real-time prices from Booking.com, Expedia, Agoda, and other global leaders so you can book with confidence at the best price. Whether you're looking for an all-inclusive resort in Punta Cana, a boutique hotel in Las Terrenas, an apartment in Juan Dolio, or an eco-cabin in Jarabacoa—we have options for you!</p>
   <p>Our focus is 100% local: we guide you based on your needs—families, couples, solo travelers, surfers in Cabarete, or divers in Bayahibe—with real insights on beaches, safety, services, and accessibility.</p>
   <p>When you book through Reservaya, you get the same rates, cancellation policies, and guarantees as on official platforms—but with local support from someone who knows the Dominican Republic.</p>
-  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">View available offers</a>
 
   <div class="contact-box">
     <h2>Do you have questions? Write us!</h2>
@@ -235,13 +238,16 @@
       <textarea name="mensaje" placeholder="Where would you like to stay? Who are you traveling with? Do you have dates?" rows="4" required></textarea>
       <button type="submit">Send inquiry</button>
     </form>
-    <div id="success-message-en" style="display:none; background:#d4edda; color:#155724; padding:15px; border-radius:8px; margin:20px 0; text-align:center; font-family:'Lato',sans-serif;">
+    <div id="success-message-en">
       Thank you for your inquiry! We’ll contact you soon.
     </div>
   </div>
 </div>
 
-
+<!-- Botón fijo de WhatsApp -->
+<a href="https://wa.me/18298604334?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
+   class="whatsapp-urgente" target="_blank" rel="noopener" aria-label="WhatsApp urgente">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
 <!-- Script de idioma y formulario -->
