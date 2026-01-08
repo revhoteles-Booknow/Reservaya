@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Reserva tu hotel en República Dominicana al mejor precio: Punta Cana, Santo Domingo, Puerto Plata, Samaná y más. Comparación en tiempo real con Booking.com, Expedia y Agoda." />
-  <title>Reserva Hotel en República Dominicana | Reservaya</title>
+  <meta name="description" content="Alojamiento económico en República Dominicana desde USD $20: Santo Domingo, Las Terrenas, Sosúa, Cabarete y más. Reserva segura y sin costos ocultos." />
+  <title>Alojamiento Económico en República Dominicana | Reservaya</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -14,7 +14,6 @@
       margin: 0 auto;
       padding: 20px;
       background-color: #f9f9f9;
-      color: #333;
     }
     .header {
       text-align: center;
@@ -34,7 +33,7 @@
     nav a {
       margin: 0 10px;
       text-decoration: none;
-      color: #003366; /* AZUL OSCURO */
+      color: #003366;
       font-weight: 600;
       font-size: 16px;
     }
@@ -73,56 +72,6 @@
     ul {
       padding-left: 20px;
     }
-
-    /* Formulario de contacto */
-    .contact-box {
-      background: #f0f8f0;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 40px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .contact-box h2 {
-      margin-top: 0;
-      color: #004d00;
-      font-size: 20px;
-    }
-    .contact-box input,
-    .contact-box textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: 'Lato', sans-serif;
-    }
-    .contact-box button {
-      background: #006400;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: 'Lato', sans-serif;
-      font-weight: 600;
-    }
-    .contact-box button:hover {
-      background: #004d00;
-    }
-
-    /* Mensaje de éxito */
-    #success-message, #success-message-en {
-      display: none;
-      background: #d4edda;
-      color: #155724;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px 0;
-      text-align: center;
-      font-family: 'Lato', sans-serif;
-    }
-
-    /* Botón de WhatsApp fijo */
     .whatsapp-urgente {
       position: fixed;
       bottom: 20px;
@@ -146,8 +95,6 @@
       height: 30px;
       filter: brightness(0) invert(1);
     }
-
-    /* Selector de idioma */
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -175,14 +122,13 @@
 </head>
 <body>
 
-<!-- Selector de idioma -->
 <div class="lang-switcher">
   <button onclick="setLanguage('es')" id="btn-es">ES</button>
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
 </div>
 
 <div class="header">
-  <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
+  <img src="Logo-reservaya.png" alt="Reservaya - Alojamiento Económico en República Dominicana">
 </div>
 
 <nav>
@@ -192,67 +138,33 @@
   <a href="familias.html">Para Familias</a>
 </nav>
 
-<!-- Botón "Ver ofertas disponibles" -->
+<!-- Botón específico para económicos -->
 <div style="text-align: center; margin: 20px 0;">
-  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">
-    Ver ofertas disponibles
+  <a href="https://www.booking.com/searchresults.es.html?ss=Santo+Domingo&price=0-70&aid=2657420" class="btn" target="_blank" rel="noopener">
+    Ver alojamientos económicos
   </a>
 </div>
 
-<!-- Contenido en español -->
 <div id="content-es" style="display:none;">
-  <h1>Reserva Ya tu Hotel en República Dominicana</h1>
-  <p>¿Buscas alojamiento en las mejores zonas turísticas de República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar las ofertas más competitivas en <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio y Jarabacoa</strong> —todo en un solo lugar, sin costos adicionales.</p>
-  <p>Comparamos precios en tiempo real de Booking.com, Expedia, Agoda y otros líderes globales, para que reserves con confianza y al mejor precio. Ya sea que busques un resort todo incluido en Punta Cana, un boutique hotel en Las Terrenas, un apartamento en Juan Dolio o una eco-cabaña en Jarabacoa, ¡tenemos opciones para ti!</p>
-  <p>Nuestro enfoque es 100% local: te guiamos según tus necesidades —familias, parejas, viajeros solos, surfistas en Cabarete o amantes del buceo en Bayahibe— con información real sobre playas, seguridad, servicios y accesibilidad.</p>
-  <p>Al reservar a través de Reservaya, accedes a las mismas tarifas, políticas de cancelación y garantías que en las plataformas oficiales, pero con el respaldo de alguien que conoce República Dominicana.</p>
-
-  <!-- Formulario de consultas -->
-  <div class="contact-box">
-    <h2>¿Tienes dudas? ¡Escríbenos!</h2>
-    <form id="consultas-form">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu email" required>
-      <textarea name="mensaje" placeholder="¿En qué zona deseas alojarte? ¿Con quién viajas? ¿Tienes fechas?" rows="4" required></textarea>
-      <button type="submit">Enviar consulta</button>
-    </form>
-    <div id="success-message">
-      ¡Gracias por tu consulta! Nos comunicaremos contigo muy pronto.
-    </div>
-  </div>
+  <h1>Alojamiento Económico en República Dominicana – ¡Desde USD $20!</h1>
+  <p>¿Quieres conocer República Dominicana sin gastar de más? En <strong>Reservaya</strong> te mostramos las mejores opciones de <strong>alojamiento económico</strong> en <strong>Santo Domingo, Las Terrenas, Sosúa, Cabarete, Samaná y Juan Dolio</strong>: hostales, guesthouses, apartamentos y hoteles limpios y seguros desde solo <strong>20 dólares por noche</strong>.</p>
+  <p>Filtramos ofertas reales de Booking.com, Agoda y más, y eliminamos los lugares sin reseñas o con políticas ocultas. ¡Viaja inteligente y ahorra para más experiencias!</p>
+  <p>Nuestro enfoque es ayudarte a <strong>maximizar tu presupuesto</strong> sin sacrificar comodidad ni ubicación. ¿Playa, centro histórico o surf? Tenemos opciones para cada estilo.</p>
 </div>
 
-<!-- Contenido en inglés -->
 <div id="content-en" style="display:none;">
-  <h1>Book Your Hotel in the Dominican Republic Now</h1>
-  <p>Looking for accommodation in the Dominican Republic’s top destinations? <strong>Reservaya</strong> helps you find the best deals in <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio, and Jarabacoa</strong> —all in one place, with no extra fees.</p>
-  <p>We compare real-time prices from Booking.com, Expedia, Agoda, and other global leaders so you can book with confidence at the best price. Whether you're looking for an all-inclusive resort in Punta Cana, a boutique hotel in Las Terrenas, an apartment in Juan Dolio, or an eco-cabin in Jarabacoa—we have options for you!</p>
-  <p>Our focus is 100% local: we guide you based on your needs—families, couples, solo travelers, surfers in Cabarete, or divers in Bayahibe—with real insights on beaches, safety, services, and accessibility.</p>
-  <p>When you book through Reservaya, you get the same rates, cancellation policies, and guarantees as on official platforms—but with local support from someone who knows the Dominican Republic.</p>
-
-  <div class="contact-box">
-    <h2>Do you have questions? Write us!</h2>
-    <form id="consultas-form-en">
-      <input type="text" name="nombre" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="mensaje" placeholder="Where would you like to stay? Who are you traveling with? Do you have dates?" rows="4" required></textarea>
-      <button type="submit">Send inquiry</button>
-    </form>
-    <div id="success-message-en">
-      Thank you for your inquiry! We’ll contact you soon.
-    </div>
-  </div>
+  <h1>Budget Accommodation in the Dominican Republic – From USD $20!</h1>
+  <p>Want to explore the Dominican Republic without overspending? <strong>Reservaya</strong> shows you the best <strong>budget-friendly stays</strong> in <strong>Santo Domingo, Las Terrenas, Sosúa, Cabarete, Samaná, and Juan Dolio</strong>: hostels, guesthouses, apartments, and clean, safe hotels from just <strong>$20 per night</strong>.</p>
+  <p>We filter real deals from Booking.com, Agoda, and more, removing places with no reviews or hidden fees. Travel smart and save for more experiences!</p>
+  <p>Our focus is helping you <strong>maximize your budget</strong> without sacrificing comfort or location. Beach, historic center, or surf? We have options for every style.</p>
 </div>
 
-<!-- Botón fijo de WhatsApp -->
 <a href="https://wa.me/18298604334?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
    class="whatsapp-urgente" target="_blank" rel="noopener" aria-label="WhatsApp urgente">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
-<!-- Script de idioma y formulario -->
 <script>
-  // Idioma
   function setLanguage(lang) {
     document.documentElement.lang = lang;
     localStorage.setItem('preferred-lang', lang);
@@ -260,8 +172,8 @@
     document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    if (lang === 'es') document.title = "Reserva Hotel en República Dominicana | Reservaya";
-    else document.title = "Book Your Hotel in the Dominican Republic | Reservaya";
+    if (lang === 'es') document.title = "Alojamiento Económico en República Dominicana | Reservaya";
+    else document.title = "Budget Accommodation in the Dominican Republic | Reservaya";
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -270,33 +182,6 @@
     const lang = savedLang || browserLang;
     document.getElementById('content-' + lang).style.display = 'block';
     document.getElementById('btn-' + lang).classList.add('active');
-  });
-
-  // Formularios
-  document.getElementById('consultas-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    fetch('https://formspree.io/f/mwpgnprg', {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    }).then(() => {
-      document.getElementById('success-message').style.display = 'block';
-      this.reset();
-      setTimeout(() => document.getElementById('success-message').style.display = 'none', 5000);
-    }).catch(() => alert('Error al enviar. Intenta de nuevo.'));
-  });
-
-  document.getElementById('consultas-form-en').addEventListener('submit', function(e) {
-    e.preventDefault();
-    fetch('https://formspree.io/f/mwpgnprg', {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    }).then(() => {
-      document.getElementById('success-message-en').style.display = 'block';
-      this.reset();
-      setTimeout(() => document.getElementById('success-message-en').style.display = 'none', 5000);
-    }).catch(() => alert('Error sending. Please try again.'));
   });
 </script>
 
