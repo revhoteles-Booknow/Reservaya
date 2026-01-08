@@ -175,7 +175,6 @@
 </head>
 <body>
 
-<!-- Selector de idioma -->
 <div class="lang-switcher">
   <button onclick="setLanguage('es')" id="btn-es">ES</button>
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
@@ -194,12 +193,11 @@
 
 <!-- Botón "Ver ofertas disponibles" -->
 <div style="text-align: center; margin: 20px 0;">
-  <a href="https://www.booking.com?aid=2657420" class="btn" target="_blank" rel="noopener">
+  <a href="https://www.booking.com/searchresults.es.html?ss=República+Dominicana&aid=2657420" class="btn" target="_blank" rel="noopener">
     Ver ofertas disponibles
   </a>
 </div>
 
-<!-- Contenido en español -->
 <div id="content-es" style="display:none;">
   <h1>Reserva Ya tu Hotel en República Dominicana</h1>
   <p>¿Buscas alojamiento en las mejores zonas turísticas de República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar las ofertas más competitivas en <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio y Jarabacoa</strong> —todo en un solo lugar, sin costos adicionales.</p>
@@ -207,7 +205,6 @@
   <p>Nuestro enfoque es 100% local: te guiamos según tus necesidades —familias, parejas, viajeros solos, surfistas en Cabarete o amantes del buceo en Bayahibe— con información real sobre playas, seguridad, servicios y accesibilidad.</p>
   <p>Al reservar a través de Reservaya, accedes a las mismas tarifas, políticas de cancelación y garantías que en las plataformas oficiales, pero con el respaldo de alguien que conoce República Dominicana.</p>
 
-  <!-- Formulario de consultas -->
   <div class="contact-box">
     <h2>¿Tienes dudas? ¡Escríbenos!</h2>
     <form id="consultas-form">
@@ -222,7 +219,6 @@
   </div>
 </div>
 
-<!-- Contenido en inglés -->
 <div id="content-en" style="display:none;">
   <h1>Book Your Hotel in the Dominican Republic Now</h1>
   <p>Looking for accommodation in the Dominican Republic’s top destinations? <strong>Reservaya</strong> helps you find the best deals in <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio, and Jarabacoa</strong> —all in one place, with no extra fees.</p>
@@ -244,15 +240,12 @@
   </div>
 </div>
 
-<!-- Botón fijo de WhatsApp -->
 <a href="https://wa.me/18298604334?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
    class="whatsapp-urgente" target="_blank" rel="noopener" aria-label="WhatsApp urgente">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
-<!-- Script de idioma y formulario -->
 <script>
-  // Idioma
   function setLanguage(lang) {
     document.documentElement.lang = lang;
     localStorage.setItem('preferred-lang', lang);
@@ -272,7 +265,6 @@
     document.getElementById('btn-' + lang).classList.add('active');
   });
 
-  // Formularios
   document.getElementById('consultas-form').addEventListener('submit', function(e) {
     e.preventDefault();
     fetch('https://formspree.io/f/mwpgnprg', {
