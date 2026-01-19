@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Reserva tu hotel en República Dominicana al mejor precio: Punta Cana, Santo Domingo, Puerto Plata, Samaná y más. Comparación en tiempo real con Booking.com, Expedia y Agoda." />
   <title>Reserva Hotel en República Dominicana | Reservaya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato  :wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Lato', sans-serif;
@@ -16,41 +16,20 @@
       background-color: #f9f9f9;
       color: #333;
     }
-
     .header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .header img {
       max-width: 250px;
       height: auto;
     }
-
-    /* --- MENÚ CON FONDO DE PLAYA SUAVE --- */
     nav {
       text-align: center;
       margin-bottom: 20px;
       padding: 15px 0;
+      background-color: #e8f5e9;
       border-radius: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-    nav::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1505237419286-8a8f7e3d7a9c?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.25; /* Suaviza la imagen */
-      z-index: 0;
-    }
-    nav > * {
-      position: relative;
-      z-index: 1;
     }
     nav a {
       margin: 0 10px;
@@ -58,29 +37,27 @@
       color: #003366; /* AZUL OSCURO */
       font-weight: 600;
       font-size: 16px;
-      position: relative;
-      z-index: 2;
     }
     nav a:hover {
       color: #ff6b6b;
       text-decoration: underline;
     }
-
     h1, h2, h3 {
       font-family: 'Lato', sans-serif;
       font-weight: 700;
       color: #004d00;
+    }
+    h1 {
+      text-align: center;
     }
     p {
       font-family: 'Lato', sans-serif;
       font-weight: 400;
       color: #333;
     }
-
-    /* --- BOTÓN "Ver ofertas disponibles" en azul marino --- */
     .btn {
       display: inline-block;
-      background: #002B5B; /* Azul marino de tu marca */
+      background: #006400;
       color: white;
       padding: 12px 24px;
       text-decoration: none;
@@ -88,13 +65,16 @@
       font-weight: bold;
       font-size: 16px;
       font-family: 'Lato', sans-serif;
-      transition: background 0.2s ease, transform 0.15s ease;
+      transition: background 0.2s ease;
     }
     .btn:hover {
-      background: #001f40; /* Un poco más oscuro al pasar el mouse */
-      transform: translateY(-2px);
+      background: #004d00;
+    }
+    ul {
+      padding-left: 20px;
     }
 
+    /* Formulario de contacto */
     .contact-box {
       background: #f0f8f0;
       padding: 20px;
@@ -130,6 +110,7 @@
       background: #004d00;
     }
 
+    /* Mensaje de éxito */
     #success-message, #success-message-en {
       display: none;
       background: #d4edda;
@@ -141,6 +122,7 @@
       font-family: 'Lato', sans-serif;
     }
 
+    /* Botón de WhatsApp fijo */
     .whatsapp-urgente {
       position: fixed;
       bottom: 20px;
@@ -165,6 +147,7 @@
       filter: brightness(0) invert(1);
     }
 
+    /* Selector de idioma */
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -197,12 +180,10 @@
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
 </div>
 
-<!-- Logo original -->
 <div class="header">
   <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
 </div>
 
-<!-- Menú con fondo suave de playa -->
 <nav>
   <a href="index.html">Inicio</a>
   <a href="todo-incluido.html">Todo Incluido</a>
@@ -210,14 +191,13 @@
   <a href="familias.html">Para Familias</a>
 </nav>
 
-<!-- Botón "Ver ofertas disponibles" en azul marino -->
+<!-- Botón "Ver ofertas disponibles" -->
 <div style="text-align: center; margin: 20px 0;">
-  <a href="https://www.booking.com/searchresults.es.html?ss=República+Dominicana&aid=2657420" class="btn" target="_blank" rel="noopener">
+  <a href="https://www.booking.com/searchresults.es.html?ss=Re  pública+Dominicana&aid=2657420" class="btn" target="_blank" rel="noopener">
     Ver ofertas disponibles
   </a>
 </div>
 
-<!-- Contenido en español e inglés (sin cambios) -->
 <div id="content-es" style="display:none;">
   <h1>Reserva Ya tu Hotel en República Dominicana</h1>
   <p>¿Buscas alojamiento en las mejores zonas turísticas de República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar las ofertas más competitivas en <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio y Jarabacoa</strong> —todo en un solo lugar, sin costos adicionales.</p>
@@ -260,10 +240,9 @@
   </div>
 </div>
 
-<!-- WhatsApp urgente -->
-<a href="https://wa.me/18298604334?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
+<a href="https://wa.me/18298604334?text  =¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
    class="whatsapp-urgente" target="_blank" rel="noopener" aria-label="WhatsApp urgente">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg  " alt="WhatsApp">
 </a>
 
 <script>
@@ -288,7 +267,7 @@
 
   document.getElementById('consultas-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    fetch('https://formspree.io/f/mwpgnprg', {
+    fetch('https://formspree.io/f/mwpgnprg  ', {
       method: 'POST',
       body: new FormData(this),
       headers: { 'Accept': 'application/json' }
@@ -301,7 +280,7 @@
 
   document.getElementById('consultas-form-en').addEventListener('submit', function(e) {
     e.preventDefault();
-    fetch('https://formspree.io/f/mwpgnprg', {
+    fetch('https://formspree.io/f/mwpgnprg  ', {
       method: 'POST',
       body: new FormData(this),
       headers: { 'Accept': 'application/json' }
