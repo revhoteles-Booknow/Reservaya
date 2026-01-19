@@ -17,47 +17,13 @@
       color: #333;
     }
 
-    /* --- BANNER NUEVO --- */
-    .banner {
-      background-color: #002B5B;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      border-radius: 12px;
-      margin-bottom: 30px;
-    }
-    .icon-container {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .icon-container svg {
-      max-width: 100%;
-      max-height: 100%;
-      fill: white;
-      stroke: white;
-    }
-    .logo-center {
+    .header {
       text-align: center;
-      max-width: 220px;
+      margin-bottom: 20px;
     }
-    .logo-center h1 {
-      font-size: 28px;
-      color: white;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 6px;
-      font-family: 'Lato', sans-serif;
-    }
-    .logo-center p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.9);
-      font-family: 'Lato', sans-serif;
+    .header img {
+      max-width: 250px;
+      height: auto;
     }
 
     nav {
@@ -78,6 +44,34 @@
       color: #ff6b6b;
       text-decoration: underline;
     }
+
+    /* --- BANNER DE ÍCONOS ILUSTRATIVOS --- */
+    .icon-banner {
+      background-color: #002B5B;
+      padding: 30px 15px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-radius: 10px;
+      margin: 25px 0;
+    }
+    .icon-item {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .icon-item svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
+      stroke: white;
+      preserveAspectRatio: xMidYMid meet;
+    }
+
     h1, h2, h3 {
       font-family: 'Lato', sans-serif;
       font-weight: 700;
@@ -102,9 +96,6 @@
     }
     .btn:hover {
       background: #004d00;
-    }
-    ul {
-      padding-left: 20px;
     }
 
     .contact-box {
@@ -202,17 +193,20 @@
     }
 
     @media (max-width: 768px) {
-      .banner {
-        flex-direction: column;
-        padding: 30px 15px;
+      .icon-banner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 10px;
       }
-      .logo-center {
-        order: -1;
-        margin-bottom: 20px;
+      .icon-item {
+        width: 50px;
+        height: 50px;
       }
-      .icon-container {
-        width: 60px;
-        height: 60px;
+      .icon-item svg {
+        width: 30px;
+        height: 30px;
       }
     }
   </style>
@@ -224,40 +218,47 @@
   <button onclick="setLanguage('en')" id="btn-en">EN</button>
 </div>
 
-<!-- ✨ NUEVO BANNER CON ÍCONOS ILUSTRATIVOS -->
-<div class="banner">
-  <!-- Ícono: Resorts de playa -->
-  <div class="icon-container">
-    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- ✅ LOGO ORIGINAL (NO CAMBIA) -->
+<div class="header">
+  <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
+</div>
+
+<!-- Menú de navegación -->
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="todo-incluido.html">Todo Incluido</a>
+  <a href="economico.html">Económicos</a>
+  <a href="familias.html">Para Familias</a>
+</nav>
+
+<!-- ✨ NUEVO BANNER CON ÍCONOS ILUSTRATIVOS (DEBAJO DEL MENÚ) -->
+<div class="icon-banner">
+  <!-- Resorts de playa -->
+  <div class="icon-item">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" preserveAspectRatio="xMidYMid meet">
       <path d="M20 60C20 54.4772 24.4772 50 30 50H50C55.5228 50 60 54.4772 60 60V70H20V60Z" fill="white"/>
-      <path d="M25 40L30 30L35 40" stroke="white" stroke-width="4" stroke-linecap="round"/>
-      <path d="M45 40L50 30L55 40" stroke="white" stroke-width="4" stroke-linecap="round"/>
-      <path d="M30 30C30 25 35 20 40 20C45 20 50 25 50 30" stroke="white" stroke-width="4" stroke-linecap="round"/>
-      <path d="M10 70C15 65 25 60 40 60C55 60 65 65 70 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
-      <path d="M10 75C15 70 25 65 40 65C55 65 65 70 70 75" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M25 40L30 30L35 40" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M45 40L50 30L55 40" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M30 30C30 25 35 20 40 20C45 20 50 25 50 30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M10 70C15 65 25 60 40 60C55 60 65 65 70 70" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M10 75C15 70 25 65 40 65C55 65 65 70 70 75" stroke="white" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 
-  <!-- Ícono: Villas -->
-  <div class="icon-container">
-    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Villas -->
+  <div class="icon-item">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" preserveAspectRatio="xMidYMid meet">
       <rect x="20" y="40" width="40" height="20" fill="white"/>
-      <path d="M20 40L40 20L60 40" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M20 40L40 20L60 40" stroke="white" stroke-width="3" stroke-linecap="round"/>
       <rect x="30" y="50" width="5" height="10" fill="white"/>
       <circle cx="55" cy="45" r="5" fill="white"/>
-      <path d="M55 40C55 35 60 30 65 30C70 30 75 35 75 40" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M55 40C55 35 60 30 65 30C70 30 75 35 75 40" stroke="white" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 
-  <!-- Logo central: "Reserva Ya" -->
-  <div class="logo-center">
-    <h1>Reserva Ya</h1>
-    <p>Vacaciones y Sol</p>
-  </div>
-
-  <!-- Ícono: Hotel de ciudad -->
-  <div class="icon-container">
-    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hotel de ciudad -->
+  <div class="icon-item">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" preserveAspectRatio="xMidYMid meet">
       <rect x="20" y="50" width="40" height="10" fill="white"/>
       <rect x="25" y="45" width="30" height="5" fill="white"/>
       <rect x="30" y="40" width="20" height="5" fill="white"/>
@@ -267,24 +268,26 @@
     </svg>
   </div>
 
-  <!-- Ícono: Ideal para familias -->
-  <div class="icon-container">
-    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Todo Incluido -->
+  <div class="icon-item">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" preserveAspectRatio="xMidYMid meet">
+      <circle cx="40" cy="40" r="15" stroke="white" stroke-width="3"/>
+      <path d="M30 50L40 30L50 50" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M45 30L55 20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <path d="M40 55L40 65" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- Ideal para familias -->
+  <div class="icon-item">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" preserveAspectRatio="xMidYMid meet">
       <circle cx="30" cy="40" r="8" fill="white"/>
       <circle cx="50" cy="40" r="8" fill="white"/>
       <circle cx="40" cy="55" r="6" fill="white"/>
-      <path d="M30 48L40 50L50 48" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M30 48L40 50L50 48" stroke="white" stroke-width="3" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
-
-<!-- Menú de navegación (igual que antes) -->
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="todo-incluido.html">Todo Incluido</a>
-  <a href="economico.html">Económicos</a>
-  <a href="familias.html">Para Familias</a>
-</nav>
 
 <!-- Botón "Ver ofertas disponibles" -->
 <div style="text-align: center; margin: 20px 0;">
@@ -293,7 +296,7 @@
   </a>
 </div>
 
-<!-- Contenido en español e inglés (sin cambios) -->
+<!-- Contenido en español e inglés -->
 <div id="content-es" style="display:none;">
   <h1>Reserva Ya tu Hotel en República Dominicana</h1>
   <p>¿Buscas alojamiento en las mejores zonas turísticas de República Dominicana? En <strong>Reservaya</strong> te ayudamos a encontrar las ofertas más competitivas en <strong>Punta Cana, Bávaro, Cap Cana, Santo Domingo, Puerto Plata, Sosúa, Cabarete, Samaná, Las Terrenas, La Romana, Bayahibe, Juan Dolio y Jarabacoa</strong> —todo en un solo lugar, sin costos adicionales.</p>
