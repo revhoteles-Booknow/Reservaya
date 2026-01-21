@@ -7,15 +7,30 @@
   <title>Hoteles para Familias en República Dominicana | Reservaya</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    /* MISMO CSS */
     body {
       font-family: 'Lato', sans-serif;
       line-height: 1.6;
       max-width: 900px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #f9f9f9;
       color: #333;
+      /* Fondo de playa suave */
+      background-image: url('https://images.unsplash.com/photo-1544551763-46a0a6b2c3ae?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.85); /* Overlay blanco translúcido */
+      z-index: -1;
     }
     .header {
       text-align: center;
@@ -215,7 +230,7 @@
   </div>
 </nav>
 
-<!-- Botón con enfoque familiar -->
+<!-- Botón con filtro familiar -->
 <div style="text-align: center; margin: 20px 0;">
   <a href="https://www.booking.com/searchresults.es.html?ss=República+Dominicana&family_preferred=1&aid=2657420" class="btn" target="_blank" rel="noopener">
     Ver ofertas para familias
