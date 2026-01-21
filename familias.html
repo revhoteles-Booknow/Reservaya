@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Hoteles para familias en República Dominicana: Punta Cana, Bávaro, Juan Dolio y La Romana. Resorts con club infantil, piscinas y menús para niños." />
+  <meta name="description" content="Hoteles para familias en República Dominicana: con niños gratis, club infantil, piscinas y seguridad. Reserva con Reservaya." />
   <title>Hoteles para Familias en República Dominicana | Reservaya</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
+    /* MISMO CSS */
     body {
       font-family: 'Lato', sans-serif;
       line-height: 1.6;
@@ -14,6 +15,7 @@
       margin: 0 auto;
       padding: 20px;
       background-color: #f9f9f9;
+      color: #333;
     }
     .header {
       text-align: center;
@@ -23,31 +25,10 @@
       max-width: 250px;
       height: auto;
     }
-    nav {
-      text-align: center;
-      margin-bottom: 20px;
-      padding: 15px 0;
-      background-color: #e8f5e9;
-      border-radius: 8px;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #003366;
-      font-weight: 600;
-      font-size: 16px;
-    }
-    nav a:hover {
-      color: #ff6b6b;
-      text-decoration: underline;
-    }
     h1, h2, h3 {
       font-family: 'Lato', sans-serif;
       font-weight: 700;
       color: #004d00;
-    }
-    h1 {
-      text-align: center;
     }
     p {
       font-family: 'Lato', sans-serif;
@@ -69,9 +50,53 @@
     .btn:hover {
       background: #004d00;
     }
-    ul {
-      padding-left: 20px;
+
+    .contact-box {
+      background: #f0f8f0;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 40px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    .contact-box h2 {
+      margin-top: 0;
+      color: #004d00;
+      font-size: 20px;
+    }
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Lato', sans-serif;
+    }
+    .contact-box button {
+      background: #006400;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+    }
+    .contact-box button:hover {
+      background: #004d00;
+    }
+
+    #success-message, #success-message-en {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+    }
+
     .whatsapp-urgente {
       position: fixed;
       bottom: 20px;
@@ -95,6 +120,7 @@
       height: 30px;
       filter: brightness(0) invert(1);
     }
+
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -118,6 +144,12 @@
       color: #ff6b6b;
       text-decoration: underline;
     }
+
+    @media (max-width: 768px) {
+      nav > div {
+        gap: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -131,46 +163,103 @@
   <img src="Logo-reservaya.png" alt="Reservaya - Hoteles para Familias en República Dominicana">
 </div>
 
+<!-- Menú con íconos -->
 <nav>
-  <a href="index.html">Inicio</a>
-  <a href="todo-incluido.html">Todo Incluido</a>
-  <a href="economico.html">Económicos</a>
-  <a href="familias.html">Para Familias</a>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; padding: 15px 0; background-color: #e8f5e9; border-radius: 8px;">
+    <div style="text-align: center; max-width: 120px;">
+      <div style="margin-bottom: 6px;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M28 14L16 6L4 14V26H10V18H22V26H28V14Z" stroke="#003366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <a href="index.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Inicio</a>
+    </div>
+    <div style="text-align: center; max-width: 120px;">
+      <div style="margin-bottom: 6px;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 20C6 18 10 22 14 20C18 18 22 22 26 20C30 18 30 24 30 24" stroke="#003366" stroke-width="2" fill="none"/>
+          <path d="M2 24C6 22 10 26 14 24C18 22 22 26 26 24C30 22 30 28 30 28" stroke="#003366" stroke-width="2" fill="none"/>
+          <path d="M16 10L16 20" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 10L12 6" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 10L20 6" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 10L14 4" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 10L18 4" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <a href="todo-incluido.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Todo Incluido</a>
+    </div>
+    <div style="text-align: center; max-width: 120px;">
+      <div style="margin-bottom: 6px;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="#003366" stroke-width="2"/>
+          <path d="M16 10V22" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 14H20" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 18H20" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <a href="economico.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Económicos</a>
+    </div>
+    <div style="text-align: center; max-width: 120px;">
+      <div style="margin-bottom: 6px;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="10" r="4" stroke="#003366" stroke-width="2"/>
+          <circle cx="23" cy="10" r="4" stroke="#003366" stroke-width="2"/>
+          <circle cx="16" cy="18" r="3" stroke="#003366" stroke-width="2"/>
+          <line x1="9" y1="14" x2="9" y2="22" stroke="#003366" stroke-width="2"/>
+          <line x1="23" y1="14" x2="23" y2="22" stroke="#003366" stroke-width="2"/>
+          <line x1="16" y1="21" x2="16" y2="26" stroke="#003366" stroke-width="2"/>
+        </svg>
+      </div>
+      <a href="familias.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Para Familias</a>
+    </div>
+  </div>
 </nav>
 
-<!-- Botón específico para familias -->
+<!-- Botón con enfoque familiar -->
 <div style="text-align: center; margin: 20px 0;">
-  <a href="https://www.booking.com/searchresults.es.html?ss=Bavaro&aid=2657420" class="btn" target="_blank" rel="noopener">
-    Ver hoteles para familias
+  <a href="https://www.booking.com/searchresults.es.html?ss=República+Dominicana&family_preferred=1&aid=2657420" class="btn" target="_blank" rel="noopener">
+    Ver ofertas para familias
   </a>
 </div>
 
 <div id="content-es" style="display:none;">
-  <h1>Hoteles Familiares en República Dominicana – ¡Diseñados para Niños!</h1>
-  <p>¿Viajas con niños y necesitas un alojamiento seguro, divertido y cómodo? En <strong>Reservaya</strong> te ayudamos a encontrar los mejores <strong>hoteles y resorts para familias</strong> en <strong>Punta Cana, Bávaro, Juan Dolio y La Romana</strong>, con:</p>
-  <ul>
-    <li>Club infantil y actividades supervisadas</li>
-    <li>Habitaciones familiares o suites con cocina</li>
-    <li>Piscinas con áreas para niños y toboganes</li>
-    <li>Playas calmadas y personal amable</li>
-    <li>Cunas y menús infantiles disponibles</li>
-  </ul>
-  <p>Comparamos ofertas de Booking.com y otros socios para que reserves con tranquilidad. ¡Sin sorpresas: todo lo que ves está incluido!</p>
-  <p>Porque sabemos que viajar con niños requiere más planificación… y merece las mejores vacaciones.</p>
+  <h1>Hoteles para Familias en República Dominicana</h1>
+  <p>Vacacionar en familia es más fácil con <strong>Reservaya</strong>. Te mostramos hoteles y resorts en <strong>Punta Cana, Bavaro, Juan Dolio, Bayahibe y Samaná</strong> con servicios pensados para niños y padres: <strong>club infantil, niñera, menús para niños, habitaciones familiares y piscinas seguras</strong>.</p>
+  <p>Trabajamos con propiedades que ofrecen <strong>niños gratis</strong> (hasta cierta edad), actividades supervisadas y zonas exclusivas para familias.</p>
+  <p>¡Porque tus hijos merecen unas vacaciones tan increíbles como tú!</p>
+
+  <div class="contact-box">
+    <h2>¿Viajas con niños?</h2>
+    <form id="consultas-form">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu email" required>
+      <textarea name="mensaje" placeholder="Edad de los niños, necesidades especiales, fechas" rows="4" required></textarea>
+      <button type="submit">Enviar consulta</button>
+    </form>
+    <div id="success-message">
+      ¡Te enviaremos opciones 100% familiares!
+    </div>
+  </div>
 </div>
 
 <div id="content-en" style="display:none;">
-  <h1>Family-Friendly Hotels in the Dominican Republic – Designed for Kids!</h1>
-  <p>Traveling with kids and need safe, fun, and comfortable accommodation? <strong>Reservaya</strong> helps you find the best <strong>family hotels and resorts</strong> in <strong>Punta Cana, Bávaro, Juan Dolio, and La Romana</strong>, featuring:</p>
-  <ul>
-    <li>Kids’ clubs and supervised activities</li>
-    <li>Family rooms or suites with kitchenettes</li>
-    <li>Pools with children’s areas and slides</li>
-    <li>Calm beaches and friendly staff</li>
-    <li>Cribs and kids’ menus available</li>
-  </ul>
-  <p>We compare deals from Booking.com and partners so you book with peace of mind. No surprises — everything you see is included!</p>
-  <p>Because we know traveling with kids takes extra planning… and deserves the best vacation.</p>
+  <h1>Family-Friendly Hotels in the Dominican Republic</h1>
+  <p>Family vacations are easier with <strong>Reservaya</strong>. We show you hotels and resorts in <strong>Punta Cana, Bavaro, Juan Dolio, Bayahibe, and Samaná</strong> with services designed for kids and parents: <strong>kids’ clubs, babysitting, children’s menus, family rooms, and safe pools</strong>.</p>
+  <p>We partner with properties that offer <strong>free stays for kids</strong> (up to a certain age), supervised activities, and family-exclusive zones.</p>
+  <p>Because your kids deserve an amazing vacation too!</p>
+
+  <div class="contact-box">
+    <h2>Traveling with kids?</h2>
+    <form id="consultas-form-en">
+      <input type="text" name="nombre" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="mensaje" placeholder="Children's ages, special needs, travel dates" rows="4" required></textarea>
+      <button type="submit">Send inquiry</button>
+    </form>
+    <div id="success-message-en">
+      We’ll send you 100% family-friendly options!
+    </div>
+  </div>
 </div>
 
 <a href="https://wa.me/18298604334?text=¡URGENTE!%20Necesito%20ayuda%20con%20mi%20reserva." 
@@ -187,7 +276,7 @@
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     if (lang === 'es') document.title = "Hoteles para Familias en República Dominicana | Reservaya";
-    else document.title = "Family-Friendly Hotels in the Dominican Republic | Reservaya";
+    else document.title = "Family Hotels in Dominican Republic | Reservaya";
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -196,6 +285,32 @@
     const lang = savedLang || browserLang;
     document.getElementById('content-' + lang).style.display = 'block';
     document.getElementById('btn-' + lang).classList.add('active');
+  });
+
+  document.getElementById('consultas-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch('https://formspree.io/f/mwpgnprg', {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    }).then(() => {
+      document.getElementById('success-message').style.display = 'block';
+      this.reset();
+      setTimeout(() => document.getElementById('success-message').style.display = 'none', 5000);
+    }).catch(() => alert('Error al enviar. Intenta de nuevo.'));
+  });
+
+  document.getElementById('consultas-form-en').addEventListener('submit', function(e) {
+    e.preventDefault();
+    fetch('https://formspree.io/f/mwpgnprg', {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    }).then(() => {
+      document.getElementById('success-message-en').style.display = 'block';
+      this.reset();
+      setTimeout(() => document.getElementById('success-message-en').style.display = 'none', 5000);
+    }).catch(() => alert('Error sending. Please try again.'));
   });
 </script>
 
