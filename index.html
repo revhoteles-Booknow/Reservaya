@@ -13,8 +13,24 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #f9f9f9;
       color: #333;
+      /* Fondo de playa */
+      background-image: url('https://images.unsplash.com/photo-1544551763-46a0a6b2c3ae?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
     }
     .header {
       text-align: center;
@@ -50,7 +66,6 @@
       background: #004d00;
     }
 
-    /* Formulario de contacto */
     .contact-box {
       background: #f0f8f0;
       padding: 20px;
@@ -86,7 +101,6 @@
       background: #004d00;
     }
 
-    /* Mensaje de éxito */
     #success-message, #success-message-en {
       display: none;
       background: #d4edda;
@@ -98,7 +112,6 @@
       font-family: 'Lato', sans-serif;
     }
 
-    /* Botón de WhatsApp fijo */
     .whatsapp-urgente {
       position: fixed;
       bottom: 20px;
@@ -123,7 +136,6 @@
       filter: brightness(0) invert(1);
     }
 
-    /* Selector de idioma */
     .lang-switcher {
       position: fixed;
       top: 10px;
@@ -166,11 +178,8 @@
   <img src="Logo-reservaya.png" alt="Reservaya - Reserva tu hotel en República Dominicana">
 </div>
 
-<!-- ✨ MENÚ CON ÍCONOS PERSONALIZADOS -->
 <nav>
   <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; padding: 15px 0; background-color: #e8f5e9; border-radius: 8px;">
-    
-    <!-- Inicio - Casita -->
     <div style="text-align: center; max-width: 120px;">
       <div style="margin-bottom: 6px;">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -179,15 +188,11 @@
       </div>
       <a href="index.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Inicio</a>
     </div>
-
-    <!-- Todo Incluido - Palmeras, playa y olas -->
     <div style="text-align: center; max-width: 120px;">
       <div style="margin-bottom: 6px;">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Olas -->
           <path d="M2 20C6 18 10 22 14 20C18 18 22 22 26 20C30 18 30 24 30 24" stroke="#003366" stroke-width="2" fill="none"/>
           <path d="M2 24C6 22 10 26 14 24C18 22 22 26 26 24C30 22 30 28 30 28" stroke="#003366" stroke-width="2" fill="none"/>
-          <!-- Palmera -->
           <path d="M16 10L16 20" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
           <path d="M16 10L12 6" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
           <path d="M16 10L20 6" stroke="#003366" stroke-width="2" stroke-linecap="round"/>
@@ -197,8 +202,6 @@
       </div>
       <a href="todo-incluido.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Todo Incluido</a>
     </div>
-
-    <!-- Económicos - Dólares -->
     <div style="text-align: center; max-width: 120px;">
       <div style="margin-bottom: 6px;">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -210,17 +213,12 @@
       </div>
       <a href="economico.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Económicos</a>
     </div>
-
-    <!-- Para Familias - Familia -->
     <div style="text-align: center; max-width: 120px;">
       <div style="margin-bottom: 6px;">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Adultos -->
           <circle cx="9" cy="10" r="4" stroke="#003366" stroke-width="2"/>
           <circle cx="23" cy="10" r="4" stroke="#003366" stroke-width="2"/>
-          <!-- Niño -->
           <circle cx="16" cy="18" r="3" stroke="#003366" stroke-width="2"/>
-          <!-- Cuerpos -->
           <line x1="9" y1="14" x2="9" y2="22" stroke="#003366" stroke-width="2"/>
           <line x1="23" y1="14" x2="23" y2="22" stroke="#003366" stroke-width="2"/>
           <line x1="16" y1="21" x2="16" y2="26" stroke="#003366" stroke-width="2"/>
@@ -228,11 +226,9 @@
       </div>
       <a href="familias.html" style="text-decoration: none; color: #003366; font-weight: 600; font-size: 16px;">Para Familias</a>
     </div>
-
   </div>
 </nav>
 
-<!-- Botón "Ver ofertas disponibles" -->
 <div style="text-align: center; margin: 20px 0;">
   <a href="https://www.booking.com/searchresults.es.html?ss=República+Dominicana&aid=2657420" class="btn" target="_blank" rel="noopener">
     Ver ofertas disponibles
